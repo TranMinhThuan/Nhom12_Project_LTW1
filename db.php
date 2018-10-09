@@ -40,7 +40,7 @@ class Db{
 		return $this->getData($result);
 	}
 
-	public function longin(){
+	public function login(){
 		//Viet cau SQL
 		$sql = "SELECT * FROM `login`";
 		//Thuc thi cau truy van
