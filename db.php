@@ -48,5 +48,25 @@ class Db{
 		return $this->getData($result);
 	}
 
+	public function getAllProducts($page,$per_page){
+		$first_links = ($page - 1) * $per_page;
+		$sql = "SELECT *
+		FROM `products` JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_ID` JOIN `protypes` ON `protypes`.`type_id` = `products`.`type_id` LIMIT $first_links,$per_page";
+		$result = self::$conn->query($sql);
+		return $this->getData($result);
+	}
 
+	public function paginate($url, $total, $page, $per_page)
+	{
+		$total_links = ceil($total/$per_page);
+
+		$link =""; 
+ 
+		for($j=1; $j <= $total_links ; $j++) 
+  		{
+   			$link = $link."<a href='$url?page=$j'> $j </a>";
+  		}  
+
+		return $link; 
+	} 
 }

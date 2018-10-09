@@ -30,6 +30,24 @@ if(isset($_SESSION['user'])){
 		  padding: 10px
 		}
 	</style>
+
+	<?php
+	include "config.php";
+	require "db.php";
+	$db = new Db;
+
+	$product1 = $db->product1();
+	//$product = $db->product();
+	$per_page = 3;
+	$page = $_GET['page'];
+	$total = 14;
+	
+	$product1 = $db->getAllProducts($page,$per_page);
+	$url = $_SERVER['PHP_SELF'];
+	echo $db->pagtinate($url, $total, $page, $per_page);
+	$link = $db->pagtinate($url, $total, $page, $per_page);
+	?>
+
 </head>
 <body>
 
@@ -119,10 +137,7 @@ if(isset($_SESSION['user'])){
 
 							<tbody>
 							<?php
-							require "config.php";
-							require "db.php";
-							$db = new Db;
-							$product1 = $db->product1();
+
 							//var_dump($product1);
 							foreach($product1 as $value){
 							?>
@@ -143,10 +158,8 @@ if(isset($_SESSION['user'])){
 							?>
 						</tbody>
 						</table>
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
+						<ul class="pagination" name = "page">
+							<?php echo $db->pagtinate($url, $total, $page, $per_page); ?>
 						</ul>
 						
 					</div>
