@@ -35,8 +35,8 @@ if(isset($_SESSION['user'])){
 
 <!--Header-part-->
 <div id="header">
-	<h1><a href="dashboard.html">Dashboard</a></h1>
-</div>
+	<h1><a href="dashboard.htm">Dashboard</a></h1>
+</div>l
 <!--close-Header-part-->
 
 <!--top-Header-menu-->

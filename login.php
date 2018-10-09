@@ -23,7 +23,7 @@ if(isset($_GET['user'])){
 <body>
 <form action="" method="get">
 	Username<input type="text" name="user" value="<?php echo isset($_COOKIE['user'])?$_COOKIE['user']:"" ?>"><br>
-	Password<input type="Password" name="pass"><br>
+	Password<input type="Password" name="pass" value="<?php echo isset($_COOKIE['pass'])?$_COOKIE['pass']:"" ?>"><br>
 	<input type="checkbox" name="remember">Remember
 	<input type="submit" name="" value="Submit">
 </form>

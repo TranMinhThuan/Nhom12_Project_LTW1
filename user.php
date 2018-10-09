@@ -3,7 +3,7 @@
 require "config.php";
 require "db.php";
 $db = new Db;
-$login = $db->lonin();
+$login = $db->login();
 class User{
 	public $username;
 	public $password;
