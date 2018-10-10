@@ -74,4 +74,22 @@ class Db{
 		self::$conn->query($sql);
 	}
 
+	public function product5($name ,$type_id,$manu_id ,$description,$price)
+	{
+		if(isset($_POST['name']))
+		{
+			$name = $_POST['name'];
+			$fileUpload = 'abc.jpg';
+			$type_id = $_POST['type_id'];
+			$manu_id = $_POST['manu_id'];
+			$description = $_POST['description'];
+			$price = $_POST['price'];
+		}
+		$sql = "INSERT INTO products(Name,image,description,Price,manu_id,type_id)
+		        VALUES('$name','$fileUpload','$description',$price,$manu_id,$type_id)";
+		        var_dump($sql);
+		        $result = self::$conn->query($sql);
+				return $result;
+	}
+
 }

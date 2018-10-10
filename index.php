@@ -45,7 +45,7 @@ if(isset($_SESSION['user'])){
 		$page = 1;
 	}
 	
-	$total = 14;
+	$total = count($db->product1());
 	
 	$product1 = $db->getAllProducts($page,$per_page);
 	$url = $_SERVER['PHP_SELF'];
@@ -71,7 +71,7 @@ if(isset($_SESSION['user'])){
 				<li class="divider"></li>
 				<li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
 				<li class="divider"></li>
-				<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+				<li><a href="login.php"><i class="icon-key"></i> Log Out</a></li>
 			</ul>
 		</li>
 		<li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
@@ -105,7 +105,7 @@ if(isset($_SESSION['user'])){
 	<ul>
 		<li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
 
-		<li> <a href="form.html"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
+		<li> <a href="form.php"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
 		<li> <a href="manufactures.html"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
 
 
