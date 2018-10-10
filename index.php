@@ -37,15 +37,20 @@ if(isset($_SESSION['user'])){
 	$db = new Db;
 
 	$product1 = $db->product1();
-	//$product = $db->product();
+
 	$per_page = 3;
-	$page = $_GET['page'];
+	if (isset($_GET['page'])) {
+		$page = $_GET['page'];
+	} else {
+		$page = 1;
+	}
+	
 	$total = 14;
 	
 	$product1 = $db->getAllProducts($page,$per_page);
 	$url = $_SERVER['PHP_SELF'];
-	echo $db->pagtinate($url, $total, $page, $per_page);
-	$link = $db->pagtinate($url, $total, $page, $per_page);
+	echo $db->paginate($url, $total, $page, $per_page);
+	$link = $db->paginate($url, $total, $page, $per_page);
 	?>
 
 </head>
@@ -159,7 +164,8 @@ if(isset($_SESSION['user'])){
 						</tbody>
 						</table>
 						<ul class="pagination" name = "page">
-							<?php echo $db->pagtinate($url, $total, $page, $per_page); ?>
+							</head>
+							<?php echo $link = $db->paginate($url, $total, $page, $per_page); ?>
 						</ul>
 						
 					</div>

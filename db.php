@@ -18,14 +18,12 @@ class Db{
 		return $arr;
 	}
 	//Viet ham lay ra tên và giá sản phẩm của hãng “Apple”
-	public function product1(){
-		//Viet cau SQL
-		$sql = "SELECT *
-		FROM `products` JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_ID` JOIN `protypes` ON `protypes`.`type_id` = `products`.`type_id`";
-		//Thuc thi cau truy van
-		$result = self::$conn->query($sql);
-		return $this->getData($result);
-	}
+	public function product1()
+		{
+			$sql = "SELECT * FROM `products`,`manufactures`,`protypes` WHERE manufactures.manu_ID = products.manu_id AND protypes.type_id = products.type_id";
+			$result = self::$conn->query($sql);
+			return $this->getData($result);
+		}
 
 	public function product2(){
 		if (isset($_GET['key'])) {
@@ -48,13 +46,13 @@ class Db{
 		return $this->getData($result);
 	}
 
-	public function getAllProducts($page,$per_page){
-		$first_links = ($page - 1) * $per_page;
-		$sql = "SELECT *
-		FROM `products` JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_ID` JOIN `protypes` ON `protypes`.`type_id` = `products`.`type_id` LIMIT $first_links,$per_page";
-		$result = self::$conn->query($sql);
-		return $this->getData($result);
-	}
+	public function getAllProducts($page, $per_page)
+		{
+			$first_link = ($page - 1) * $per_page; 
+			$sql = "SELECT * FROM `products`,`manufactures`,`protypes` WHERE manufactures.manu_ID = products.manu_id AND protypes.type_id = products.type_id LIMIT $first_link, $per_page"; 
+			$result = self::$conn->query ($sql);        
+			return $this->getData($result);     
+		}
 
 	public function paginate($url, $total, $page, $per_page)
 	{
