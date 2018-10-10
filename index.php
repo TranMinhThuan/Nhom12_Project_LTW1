@@ -37,9 +37,6 @@ if(isset($_SESSION['user'])){
 	$db = new Db;
 
 	$product1 = $db->product1();
-<<<<<<< HEAD
-	//$product = $db->product();
-=======
 
 	$per_page = 3;
 	if (isset($_GET['page'])) {
@@ -54,7 +51,6 @@ if(isset($_SESSION['user'])){
 	$url = $_SERVER['PHP_SELF'];
 	echo $db->paginate($url, $total, $page, $per_page);
 	$link = $db->paginate($url, $total, $page, $per_page);
->>>>>>> a1b18c885f6f3588614a84c36d2298f208e5bcf0
 	?>
 
 </head>
@@ -168,11 +164,8 @@ if(isset($_SESSION['user'])){
 						</tbody>
 						</table>
 						<ul class="pagination" name = "page">
-<<<<<<< HEAD
-=======
 							</head>
 							<?php echo $link = $db->paginate($url, $total, $page, $per_page); ?>
->>>>>>> a1b18c885f6f3588614a84c36d2298f208e5bcf0
 						</ul>
 						
 					</div>
