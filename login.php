@@ -7,6 +7,9 @@ if(isset($_GET['user'])){
 		if(isset($_GET['remember'])){
 			setcookie('user',$_GET['user'],time()+3600);
 			setcookie('pass',$_GET['pass'],time()+3600);
+		}else{
+			setcookie('user',$_GET['user'],time()-3600);
+			setcookie('pass',$_GET['pass'],time()-3600);
 		}
 		//echo "Logged in successfully";
 		//Luu thong tin vao session

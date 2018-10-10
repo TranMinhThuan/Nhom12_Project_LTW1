@@ -38,14 +38,6 @@ if(isset($_SESSION['user'])){
 
 	$product1 = $db->product1();
 	//$product = $db->product();
-	$per_page = 3;
-	$page = $_GET['page'];
-	$total = 14;
-	
-	$product1 = $db->getAllProducts($page,$per_page);
-	$url = $_SERVER['PHP_SELF'];
-	echo $db->pagtinate($url, $total, $page, $per_page);
-	$link = $db->pagtinate($url, $total, $page, $per_page);
 	?>
 
 </head>
@@ -150,7 +142,7 @@ if(isset($_SESSION['user'])){
 								<td><?php echo $value['Price'] ?></td>
 								<td>
 									<a href="form.html" class="btn btn-success btn-mini">Edit</a>
-									<a href="#" class="btn btn-danger btn-mini">Delete</a>
+									<a href="delete.php?ID=<?php echo $value['ID'] ?>" class="btn btn-danger btn-mini">Delete</a>
 								</td>
 							</tr>
 							<?php
@@ -159,7 +151,6 @@ if(isset($_SESSION['user'])){
 						</tbody>
 						</table>
 						<ul class="pagination" name = "page">
-							<?php echo $db->pagtinate($url, $total, $page, $per_page); ?>
 						</ul>
 						
 					</div>

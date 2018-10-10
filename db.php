@@ -13,6 +13,7 @@ class Db{
 	public function getData($obj){
 		$arr = array();
 		while($row = $obj->fetch_assoc()){
+
 			$arr[]=$row;
 		}
 		return $arr;
@@ -68,5 +69,11 @@ class Db{
   		}  
 
 		return $link; 
-	} 
+	}
+
+	public function delete($ID){
+		$sql = "DELETE FROM `products` WHERE ID = $ID";
+		self::$conn->query($sql);
+	}
+
 }
