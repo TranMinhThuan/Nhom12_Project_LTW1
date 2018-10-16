@@ -94,13 +94,13 @@ class Db{
 				return $result;
 	}
 	
-	public function product6()
+	public function showManufactures()
 	{
 		$sql = "SELECT * FROM `manufactures`";
 		$result = self::$conn->query($sql);
 		return $this->getData($result);
 	}
-	public function product3($manu_name)
+	public function insertManufactures($manu_name)
 	{
 		if(isset($_POST['manu_name']))
 		{

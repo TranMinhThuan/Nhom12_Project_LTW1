@@ -9,7 +9,7 @@ if(isset($_POST['name']))
 			$description = $_POST['description'];
 			$price = $_POST['price'];
 			$db = new Db;
-			$db->product5($name,$description,$price,$manu_id,$type_id);
+			$db->addPD($name,$description,$price,$manu_id,$type_id);
 			header("location:index.php");
 			
 }

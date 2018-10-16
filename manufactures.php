@@ -101,8 +101,8 @@
 							include "config.php";
 							require "db.php";
 							$db = new Db;
-							$product6 = $db->product6();
-							foreach ($product6 as $value) {
+							$showManufactures = $db->showManufactures();
+							foreach ($showManufactures as $value) {
 								# code...
 							?>
 							<tr class="">
