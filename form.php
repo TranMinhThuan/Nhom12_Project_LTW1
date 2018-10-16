@@ -63,10 +63,10 @@
 
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-th"></i>Tables</a>
 	<ul>
-		<li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+		<li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
 
-		<li> <a href="form.html"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
-		<li> <a href="manufactures.html"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
+		<li> <a href="form.php"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
+		<li> <a href="manufactures.php"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
 
 
 

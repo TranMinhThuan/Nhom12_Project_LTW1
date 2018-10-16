@@ -71,25 +71,35 @@ class Db{
 
 	public function delete($ID){
 		$sql = "DELETE FROM `products` WHERE ID = $ID";
+		var_dump($sql);
 		self::$conn->query($sql);
 	}
-
-	public function product5($name ,$type_id,$manu_id ,$description,$price)
+	
+	
+	public function product6()
 	{
-		if(isset($_POST['name']))
+		$sql = "SELECT * FROM `manufactures`";
+		$result = self::$conn->query($sql);
+		return $this->getData($result);
+	}
+	public function product3($manu_name)
+	{
+		if(isset($_POST['manu_name']))
 		{
-			$name = $_POST['name'];
-			$fileUpload = 'abc.jpg';
-			$type_id = $_POST['type_id'];
-			$manu_id = $_POST['manu_id'];
-			$description = $_POST['description'];
-			$price = $_POST['price'];
+			$manu_name = $_POST['manu_name'];
+			$image = "abc.jmg";
 		}
-		$sql = "INSERT INTO products(Name,image,description,Price,manu_id,type_id)
-		        VALUES('$name','$fileUpload','$description',$price,$manu_id,$type_id)";
-		        var_dump($sql);
+		$sql ="INSERT INTO manufactures(manu_name,manu_img) VALUE('$manu_name','$image')";
+				var_dump($sql);
 		        $result = self::$conn->query($sql);
 				return $result;
 	}
+	
+	public function deletemanufactures($manu_ID){
+		$sql="DELETE FROM `manufactures` WHERE manu_ID = $manu_ID";
+		self::$conn->query($sql);
+	}
 
+	
+	
 }

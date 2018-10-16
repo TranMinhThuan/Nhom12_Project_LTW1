@@ -63,10 +63,10 @@
 
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-th"></i>Tables</a>
 	<ul>
-		<li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+		<li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
 
-		<li> <a href="form.html"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
-		<li> <a href="manufactures.html"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
+		<li> <a href="form.php"><i class="icon icon-th-list"></i> <span>Add New Product</span></a></li>
+		<li> <a href="manufactures.php"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
 
 
 
@@ -90,7 +90,7 @@
 					<div class="widget-content nopadding">
 
 						<!-- BEGIN USER FORM -->
-						<form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
+						<form action="addManufacture.php" method="post" class="form-horizontal" enctype="multipart/form-data">
 							<div class="control-group">
 								<label class="control-label">Manufacture Name :</label>
 								<div class="controls">

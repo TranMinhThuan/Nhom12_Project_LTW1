@@ -5,5 +5,6 @@
 	$db = new Db;
 
 	$delete = $db->delete($ID);
-	header('location:index.php');
+	header("location:index.php");
+	
 ?>

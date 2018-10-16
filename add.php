@@ -4,7 +4,7 @@ require "db.php";
 if(isset($_POST['name']))
 {
 			$name = $_POST['name'];
-			$fileUpload = 'abc.jpg';
+			$fileUpload ="abc.jmg";;
 			$type_id = $_POST['type_id'];
 			$manu_id = $_POST['manu_id'];
 			$description = $_POST['description'];
