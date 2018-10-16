@@ -104,9 +104,9 @@
 							require "config.php";
 							require "db.php";
 							$db = new Db;
-							$product2 = $db->product2();
-							//var_dump($product1);
-							foreach($product2 as $value){
+							$find = $db->find();
+							//var_dump($show);
+							foreach($find as $value){
 							?>
 							<tr class="">
 								<td><img src="<?php echo 'public/images/'.$value['image'] ?>"></td>

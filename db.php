@@ -19,7 +19,7 @@ class Db{
 		return $arr;
 	}
 	//Viet ham lay ra tên và giá sản phẩm của hãng “Apple”
-	public function product1()
+	public function show()
 		{
 			$sql = "SELECT * FROM `products`,`manufactures`,`protypes` WHERE manufactures.manu_ID = products.manu_id AND protypes.type_id = products.type_id";
 			$result = self::$conn->query($sql);
@@ -75,6 +75,24 @@ class Db{
 		self::$conn->query($sql);
 	}
 	
+	public function product5($name ,$type_id,$manu_id ,$description,$price)
+	{
+		if(isset($_POST['name']))
+		{
+			$name = $_POST['name'];
+			$fileUpload ="abc.jmg";
+			$type_id = $_POST['type_id'];
+			$manu_id = $_POST['manu_id'];
+			$description = $_POST['description'];
+			$price = $_POST['price'];
+			 
+		}
+		$sql = "INSERT INTO products(Name,image,description,Price,manu_id,type_id)
+		        VALUES('$name','$fileUpload','$description',$price,$manu_id,$type_id)";
+		        var_dump($sql);
+		        $result = self::$conn->query($sql);
+				return $result;
+	}
 	
 	public function product6()
 	{
