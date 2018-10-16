@@ -104,9 +104,9 @@
 							require "config.php";
 							require "db.php";
 							$db = new Db;
-							$find = $db->find();
+							$findPD = $db->findPD();
 							//var_dump($show);
-							foreach($find as $value){
+							foreach($findPD as $value){
 							?>
 							<tr class="">
 								<td><img src="<?php echo 'public/images/'.$value['image'] ?>"></td>

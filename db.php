@@ -26,7 +26,7 @@ class Db{
 			return $this->getData($result);
 		}
 
-	public function product2(){
+	public function findPD(){
 		if (isset($_GET['key'])) {
 			$key = $_GET['key'];
 		}
@@ -75,7 +75,7 @@ class Db{
 		self::$conn->query($sql);
 	}
 	
-	public function product5($name ,$type_id,$manu_id ,$description,$price)
+	public function addPD($name ,$type_id,$manu_id ,$description,$price)
 	{
 		if(isset($_POST['name']))
 		{
