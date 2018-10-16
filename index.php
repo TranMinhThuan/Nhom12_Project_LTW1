@@ -36,7 +36,7 @@ if(isset($_SESSION['user'])){
 	require "db.php";
 	$db = new Db;
 
-	$product1 = $db->product1();
+	$show = $db->show();
 
 	$per_page = 3;
 	if (isset($_GET['page'])) {
@@ -45,9 +45,9 @@ if(isset($_SESSION['user'])){
 		$page = 1;
 	}
 	
-	$total = count($db->product1());
+	$total = count($db->show());
 	
-	$product1 = $db->getAllProducts($page,$per_page);
+	$show = $db->getAllProducts($page,$per_page);
 	$url = $_SERVER['PHP_SELF'];
 	echo $db->paginate($url, $total, $page, $per_page);
 	$link = $db->paginate($url, $total, $page, $per_page);
@@ -143,8 +143,8 @@ if(isset($_SESSION['user'])){
 							<tbody>
 							<?php
 
-							//var_dump($product1);
-							foreach($product1 as $value){
+							//var_dump($show);
+							foreach($show as $value){
 							?>
 							<tr class="">
 								<td><img src="<?php echo 'public/images/'.$value['image'] ?>"></td>
