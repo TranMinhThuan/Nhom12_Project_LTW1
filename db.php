@@ -39,12 +39,18 @@ class Db{
 		return $this->getData($result);
 	}
 
-	public function login(){
+	public function login($user, $pass){
 		//Viet cau SQL
 		$sql = "SELECT * FROM `login`";
 		//Thuc thi cau truy van
 		$result = self::$conn->query($sql);
-		return $this->getData($result);
+		$User = $this->getData($result);
+		foreach ($User as $value) {
+			if ($value["User"] == $user && $pass == $value["Pass"]){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public function getAllProducts($page, $per_page)
@@ -80,7 +86,7 @@ class Db{
 		if(isset($_POST['name']))
 		{
 			$name = $_POST['name'];
-			$fileUpload ="abc.jmg";
+			$image = $_FILES["fileUpload"]["name"];
 			$type_id = $_POST['type_id'];
 			$manu_id = $_POST['manu_id'];
 			$description = $_POST['description'];
@@ -88,7 +94,7 @@ class Db{
 			 
 		}
 		$sql = "INSERT INTO products(Name,image,description,Price,manu_id,type_id)
-		        VALUES('$name','$fileUpload','$description',$price,$manu_id,$type_id)";
+		        VALUES('$name','$image','$description',$price,$manu_id,$type_id)";
 		        var_dump($sql);
 		        $result = self::$conn->query($sql);
 				return $result;
@@ -105,7 +111,7 @@ class Db{
 		if(isset($_POST['manu_name']))
 		{
 			$manu_name = $_POST['manu_name'];
-			$image = "abc.jmg";
+			$image = $_FILES["fileUpload"]["name"];
 		}
 		$sql ="INSERT INTO manufactures(manu_name,manu_img) VALUE('$manu_name','$image')";
 				var_dump($sql);

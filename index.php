@@ -35,7 +35,6 @@ if(isset($_SESSION['user'])){
 	include "config.php";
 	require "db.php";
 	$db = new Db;
-
 	$show = $db->show();
 
 	$per_page = 3;

@@ -13,6 +13,20 @@
 	<link rel="stylesheet" href="public/css/matrix-media.css" />
 	<link href="public/font-awesome/css/font-awesome.css" rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		ul.pagination{
+			list-style: none;
+			float: right;
+		}
+		ul.pagination li.active{
+			font-weight: bold
+		}
+		ul.pagination li{
+		  float: left;
+		  display: inline-block;
+		  padding: 10px
+		}
+	</style>
 </head>
 <body>
 
@@ -105,6 +119,18 @@
 							require "db.php";
 							$db = new Db;
 							$findPD = $db->findPD();
+
+							$per_page = 3;
+							if (isset($_GET['page'])) {
+								$page = $_GET['page'];
+							} else {
+								$page = 1;
+							}
+							
+							$total = count($db->findPD());
+				
+							$url = $_SERVER['PHP_SELF'];
+							$link = $db->paginate($url, $total, $page, $per_page);
 							//var_dump($show);
 							foreach($findPD as $value){
 							?>
@@ -126,6 +152,10 @@
 
 							</tbody>
 						</table>
+						<ul class="pagination" name = "page">
+							<?php echo $link = $db->paginate($url, $total, $page, $per_page); ?>
+						</ul>
+						
 					</div>
 				</div>
 			</div>

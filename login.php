@@ -1,9 +1,13 @@
 <?php
 session_start();
-require_once "user.php";
+
+require "db.php";
+require "config.php";
 if(isset($_GET['user'])){
-	$user1 = new User($_GET['user'],$_GET['pass']);
-	if($user1->login($_GET['user'],$_GET['pass'])){
+	$user = $_GET['user'];
+	$pass = $_GET['pass'];
+	$db = new Db();
+	if($db->login($user, $pass)){
 		if(isset($_GET['remember'])){
 			setcookie('user',$_GET['user'],time()+3600);
 			setcookie('pass',$_GET['pass'],time()+3600);
