@@ -32,10 +32,7 @@ if(isset($_GET['user'])){
 		  padding: 7px 8px;
 		  margin-bottom: 7px;
 		}
-		form .row:hover {
-		  background: #f1f7fa;
-		}
-		  
+		
 		form label {
 		  display: inline-block;
 		  font-size: 1.2em;
@@ -59,6 +56,8 @@ if(isset($_GET['user'])){
 		form {
 			text-align: center;
 		}
+
+		
 	</style>
 </head>
 <body>

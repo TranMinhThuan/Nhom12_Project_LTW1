@@ -124,6 +124,27 @@ class Db{
 		self::$conn->query($sql);
 	}
 
+	public function edit($ID)
+	{
+		$sql = "SELECT *FROM `products` WHERE ID = '$ID'";
+		$result = self::$conn->query($sql);        
+		return $this->getData($result);  
+	}
 	
+	public function update($ID,$name ,$type_id,$manu_id ,$description,$prices)
+	{
+		if(isset($_POST['name']))
+		{
+			$name = $_POST['name'];
+			$image = $_FILES["fileUpload"]["name"];
+			$type_id = $_POST['type_id'];
+			$manu_id = $_POST['manu_id'];
+			$description = $_POST['description'];
+			$price = $_POST['price'];
+			 
+		}
+		$sql =" UPDATE `products` SET Name = '$name',image='$image',manu_id ='$manu_id' ,type_id='$type_id',description='$description',Price='$price' WHERE ID = '$ID'";
+		self::$conn->query($sql);
+	}
 	
 }

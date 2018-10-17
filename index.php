@@ -153,7 +153,7 @@ if(isset($_SESSION['user'])){
 								<td><?php echo $value['description'] ?></td>
 								<td><?php echo $value['Price'] ?></td>
 								<td>
-									<a href="form.php" class="btn btn-success btn-mini">Edit</a>
+									<a href="edit.php?ID=<?php echo $value['ID']; ?>" class="btn btn-success btn-mini">Edit</a>
 									<a href="delete.php?ID=<?php echo $value['ID'] ?>" class="btn btn-danger btn-mini">Delete</a>
 								</td>
 							</tr>

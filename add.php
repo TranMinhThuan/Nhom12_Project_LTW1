@@ -12,8 +12,7 @@ if(isset($_POST['name']))
 			$db = new Db;
 
 			$db->addPD($name,$image,$description,$price,$manu_id,$type_id);
-
-			$targetDir = "images";
+			$targetDir = "uploads/";
 			$targetFile = $targetDir.basename($_FILES["fileUpload"]["name"]);
 			$uploadOK = 1;
 			$imageFileType=pathinfo($targetFile,PATHINFO_EXTENSION);
